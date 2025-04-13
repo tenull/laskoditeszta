@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import * as React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+import Header from "./components/Header";
+import LandingScreen from "./screens/LandingScreen";
+import Tesztaink from "./screens/Tesztaink";
+import Teszta from "./screens/Teszta";
+import Bemutatkozas from "./screens/Bemutatkozas";
+import Kapcsolat from "./screens/Kapcsolat";
+import Footer from "./components/Footer";
+import TesztaDetail from "./screens/TesztaDetail";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+    <Router>
+      <Header />
+      <main className="mainapp">
+        <Routes>
+          <Route path="/" element={<LandingScreen />} />
+         <Route path="/termekeink" element={<Tesztaink />} />
+         <Route path="/termekeink/:category" element={<TesztaDetail />} />
+         <Route path="/teszta/:name" element={<Teszta />} />
+          <Route path="/bemutatkozas" element={<Bemutatkozas />} />
+          <Route path="/kapcsolat" element={<Kapcsolat />} />
+        </Routes>
+      </main>
+      {/* <Contacts/> */}
+      <Footer/>
+    </Router>
+  </ChakraProvider>
   );
 }
 

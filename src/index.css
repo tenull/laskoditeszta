@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mainapp{
+ font-family: 'Open Sans, sans-serif';
+}
+
+.first-letter {
+  font-size: 35px;
+  line-height: 70px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+::selection {
+  background-color: black; 
+  color: white;          
+}
+
+.some-class::selection {
+  background-color: black;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
